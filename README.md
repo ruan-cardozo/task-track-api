@@ -23,7 +23,13 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
+Apresentamos nossa API mobile task manager, uma ferramenta essencial para quem busca aprimorar a organização e a eficiência em suas atividades diárias. Projetada para suprir a necessidade fundamental de gerenciamento de tarefas, nossa API vai além, integrando de forma inteligente suas obrigações diárias com seus objetivos de longo prazo.
 
+Com a nossa solução, você não apenas mantém suas tarefas cotidianas organizadas, mas também recebe lembretes e notificações estratégicas para eventos importantes, como reuniões e consultas médicas. Além disso, nossa API permite a sincronização perfeita dessas obrigações com seus objetivos pessoais e profissionais, garantindo que cada atividade contribua significativamente para suas metas maiores.
+
+Imagine receber um alerta sobre uma reunião crucial enquanto ainda tem tempo para ajustar sua agenda de acordo com seus objetivos diários. Ou ser lembrado do compromisso com o dentista, enquanto mantém o foco nas tarefas essenciais do dia. Com nossa API mobile task manager, essa integração entre responsabilidades e aspirações se torna uma realidade acessível a todos os usuários.
+
+Simplifique sua vida, aumente sua produtividade e alcance seus objetivos com facilidade. Descubra como nossa API mobile task manager pode transformar sua abordagem para o gerenciamento de tarefas diárias e permitir um equilíbrio harmonioso entre obrigações e metas pessoais.
 
 
 ## Installation
