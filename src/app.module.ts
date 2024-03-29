@@ -3,10 +3,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { UsersModule } from './users/users.module';
+import { TaskModule } from './task/task.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(), 
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'task_db',
@@ -14,7 +16,13 @@ import { ConfigModule } from '@nestjs/config';
       database: 'postgres',
       username: 'postgres',
       password: 'postgres',
+      autoLoadEntities: true,
+      entities: [`${__dirname}/**/*.entity{.ts,.js}`],
+      migrations: [`${__dirname}/migration/*{.ts,.js}`],
+      migrationsRun: true,
     }),
+    UsersModule,
+    TaskModule,
   ],
   controllers: [AppController],
   providers: [AppService],
