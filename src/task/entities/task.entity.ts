@@ -11,14 +11,17 @@ export class Task {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ name: 'name', nullable: false })
+  @Column({ name: 'status', nullable: false })
   status: string;
 
-  @Column({ name: 'name', nullable: false })
+  @Column({ name: 'completed', nullable: false })
   completed: boolean;
 
-  @Column({ name: 'name', nullable: false })
+  @Column({ name: 'description', nullable: false })
   description: string;
+
+  @Column({ name: 'due_date', nullable: false })
+  dueDate: Date;
 
   @CreateDateColumn({ name: 'created_at' })
   created_at: Date;

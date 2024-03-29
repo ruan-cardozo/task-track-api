@@ -16,6 +16,14 @@ export class UsersService {
     return this.repository.save(user);
   }
 
+  findAll() {
+    return this.repository.find();
+  }
+
+  findOne(id: number) {
+    return this.repository.findOne({ where: { id } });
+  }
+
   async update(id: number, updateUserDto: UpdateUserDto) {
     const databaseUser = await this.repository.findOne({ where: { id } });
 
@@ -25,7 +33,8 @@ export class UsersService {
     }
     throw new Error(`User with id ${id} not found.`);
   }
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+
+  delete(id: number) {
+    return this.repository.delete(id);
   }
 }
