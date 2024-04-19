@@ -2,7 +2,7 @@
 Uma sugestão é usar o wsl -> para fins de facilidade na usabilidade do docker
 :one: Clonar o repositório do banco de dados: https://github.com/ruan-cardozo/task-track-database
 * na pasta que clonar o repositório: rodar o comando `docker compose up`
-2️⃣ Depois clonar o repositório da api e rodar o comando: `docker compose -f docker-compose.yml up --build`
+* Depois clonar o repositório da api e rodar o comando: `docker compose -f docker-compose.yml up --build`
 
 
 
