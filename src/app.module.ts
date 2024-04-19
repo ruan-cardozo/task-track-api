@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
-import { UsersModule } from './users/users.module';
-import { TaskModule } from './task/task.module';
+import { UsersModule } from './modules/users/users.module';
+import { TaskModule } from './modules/task/task.module';
 
 @Module({
   imports: [
