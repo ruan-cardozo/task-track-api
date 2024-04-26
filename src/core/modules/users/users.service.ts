@@ -4,7 +4,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { hashPasswordToSave } from 'src/common/helpers/hash-password.helper';
+import { hashPasswordToSave } from 'src/core/common/helpers/hash-password.helper';
 
 @Injectable()
 export class UsersService {
