@@ -10,6 +10,7 @@ import {
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { IsPublic } from 'src/core/common/decorators/is-public.decorator';
 
 @Controller('v2/users')
 export class UsersController {
@@ -25,7 +26,13 @@ export class UsersController {
     return this.usersService.findOne(id);
   }
 
-  @Post('/create')
+  @Get(':email')
+  findUserByEmail(@Param('email') email: string) {
+    return this.usersService.findUserByEmail(email);
+  }
+
+  @Post()
+  @IsPublic()
   create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
   }
