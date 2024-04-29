@@ -13,6 +13,8 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
+    console.log('entrou no users');
+
     const user = this.repository.create(createUserDto);
     user.password = await hashPasswordToSave(user.password);
 
