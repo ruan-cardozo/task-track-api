@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
-import { Repository } from 'typeorm';
+import { MoreThan, Repository } from 'typeorm';
 import { Task } from './entities/task.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 
@@ -36,5 +36,16 @@ export class TaskService {
 
   remove(id: number) {
     return this.repository.delete(id);
+  }
+
+  findTodayTasks() {
+    const startOfDay = new Date();
+    startOfDay.setHours(0, 0, 0, 0);
+  
+    return this.repository.find({
+      where: {
+        created_at: MoreThan(startOfDay),
+      },
+    });
   }
 }

@@ -41,4 +41,9 @@ export class TaskController {
   remove(@Param('id') id: number) {
     return this.taskService.remove(id);
   }
+
+  @Get('findTodayTasks')
+  getTodayTasks() {
+    return this.taskService.findTodayTasks();
+  }
 }
