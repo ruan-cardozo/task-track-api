@@ -15,6 +15,10 @@ export class TaskService {
     return this.repository.find();
   }
 
+  findAllWithDateFilter(filter: Date) {
+    return this.repository.find({ where: { created_at: MoreThan(filter) } });
+  }
+
   findOne(id: number) {
     return this.repository.findOne({ where: { id } });
   }
@@ -38,14 +42,4 @@ export class TaskService {
     return this.repository.delete(id);
   }
 
-  findTodayTasks() {
-    const startOfDay = new Date();
-    startOfDay.setHours(0, 0, 0, 0);
-  
-    return this.repository.find({
-      where: {
-        created_at: MoreThan(startOfDay),
-      },
-    });
-  }
 }
