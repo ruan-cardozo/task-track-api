@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
-import { Repository } from 'typeorm';
+import { MoreThan, Repository } from 'typeorm';
 import { Task } from './entities/task.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 
@@ -13,6 +13,10 @@ export class TaskService {
 
   findAll() {
     return this.repository.find();
+  }
+
+  findAllWithDateFilter(filter: Date) {
+    return this.repository.find({ where: { created_at: MoreThan(filter) } });
   }
 
   findOne(id: number) {
@@ -37,4 +41,5 @@ export class TaskService {
   remove(id: number) {
     return this.repository.delete(id);
   }
+
 }

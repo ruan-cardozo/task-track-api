@@ -9,7 +9,7 @@ import { PassportModule } from '@nestjs/passport';
 import { UsersModule } from '../users/users.module';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
-import { JwtStategy } from './strategies/jwt.strategy';
+import { JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
 import { LoginValidationMiddleware } from './middlewares/login-validation.middleware';
 
@@ -22,7 +22,7 @@ import { LoginValidationMiddleware } from './middlewares/login-validation.middle
       signOptions: { expiresIn: '8h' },
     }),
   ],
-  providers: [AuthService, LocalStrategy, JwtStategy],
+  providers: [AuthService, LocalStrategy, JwtStrategy],
   controllers: [AuthController],
   exports: [AuthService],
 })

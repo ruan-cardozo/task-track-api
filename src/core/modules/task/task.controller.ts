@@ -6,6 +6,7 @@ import {
   Put,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { TaskService } from './task.service';
 import { CreateTaskDto } from './dto/create-task.dto';
@@ -20,6 +21,11 @@ export class TaskController {
   @Get()
   findAll() {
     return this.taskService.findAll();
+  }
+
+  @Get('filter')
+  findAllWithFilter(@Query('date') filter: Date) {
+    return this.taskService.findAllWithDateFilter(filter);
   }
 
   @Get(':id')
