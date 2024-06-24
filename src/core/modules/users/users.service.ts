@@ -23,18 +23,18 @@ export class UsersService {
 
   findAll() {
     return this.repository.find();
-  }
+}
 
   findOne(id: number) {
-    return this.repository.findOne({ where: { id } });
+    return this.repository.findOneOrFail({ where: { id } });
   }
 
   async findUserByEmail(email: string) {
-    return await this.repository.findOneOrFail({ where: { email } });
+    return await this.repository.findOne({ where: { email } });
   }
 
   async update(id: number, updateUserDto: UpdateUserDto) {
-    const databaseUser = await this.repository.findOne({ where: { id } });
+    const databaseUser = await this.repository.findOneOrFail({ where: { id } });
 
     if (databaseUser) {
       const updatedUser = this.repository.merge(databaseUser, updateUserDto);

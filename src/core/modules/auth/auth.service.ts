@@ -16,13 +16,14 @@ export class AuthService {
     const userPayload: UserPayload = {
       sub: user.id,
       email: user.email,
-      name: user.name,
+      name: user.name
     };
 
     return {
-      acess_token: this.jwtService.sign(userPayload, {
+      access_token: this.jwtService.sign(userPayload, {
         secret: process.env.JWT_SECRET,
       }),
+      user: userPayload,
     };
   }
 
