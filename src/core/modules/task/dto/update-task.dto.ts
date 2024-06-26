@@ -36,7 +36,6 @@ export class UpdateTaskDto extends PartialType(CreateTaskDto) {
     example: 'To check if the task is completed or not',
     description: 'True or false to check if the task is completed or not',
   })
-  @IsBoolean()
   completed: boolean;
 
   @ApiProperty({
