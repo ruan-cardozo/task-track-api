@@ -24,6 +24,7 @@ import { JwtAuthGuard } from './core/modules/auth/guards/jwt-auth.guard';
       entities: [`${__dirname}/**/*.entity{.ts,.js}`],
       migrations: [`${__dirname}/migration/*{.ts,.js}`],
       migrationsRun: true,
+      synchronize: true
     }),
     UsersModule,
     TaskModule,

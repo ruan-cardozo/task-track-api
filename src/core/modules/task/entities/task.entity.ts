@@ -11,10 +11,13 @@ export class Task {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column({ name: 'title', nullable: true })
+  title: string;
+
   @Column({ name: 'status', nullable: false })
   status: string;
 
-  @Column({ name: 'completed', nullable: false })
+  @Column({ name: 'completed', nullable: true })
   completed: boolean;
 
   @Column({ name: 'description', nullable: false })

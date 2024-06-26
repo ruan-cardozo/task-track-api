@@ -17,6 +17,13 @@ export class UpdateTaskDto extends PartialType(CreateTaskDto) {
   @IsString()
   status: string;
 
+  @ApiProperty({
+    example: 'Task title',
+    description: 'The title of the task',
+  })
+  @IsNotEmpty()
+  @IsString()
+  title: string;
 
   @ApiProperty({
     example: '2021-07-01',

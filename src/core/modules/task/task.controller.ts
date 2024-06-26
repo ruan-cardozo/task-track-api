@@ -12,6 +12,7 @@ import { TaskService } from './task.service';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { TaskStatus } from './enum/task.enum';
 
 @ApiTags('tasks')
 @Controller('/v2/tasks')
@@ -25,12 +26,20 @@ export class TaskController {
 
   @Get('filter')
   findAllWithFilter(@Query('date') filter: Date) {
+
     return this.taskService.findAllWithDateFilter(filter);
   }
 
   @Get(':id')
   findOne(@Param('id') id: number) {
     return this.taskService.findOne(id);
+  }
+
+  @Get('status/:status')
+  findTasksByStatus(@Param('status') status: TaskStatus) {
+    console.log('status', status);
+    
+    return this.taskService.findTasksByStatus(status);
   }
 
   @Post()
