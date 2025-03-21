@@ -23,7 +23,7 @@ describe('AuthController', () => {
     // service = module.get<AuthService>(AuthService);
   });
 
-  //trigger pipeline
+  //trigger pipeline 1
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
