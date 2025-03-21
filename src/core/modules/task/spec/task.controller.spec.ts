@@ -33,7 +33,9 @@ describe.only('TaskController', () => {
 
   it('should get all tasks', async () => {
     const result: Task[] = [];
-    jest.spyOn(service, 'findAll').mockImplementation(() => Promise.resolve(result));
+    jest
+      .spyOn(service, 'findAll')
+      .mockImplementation(() => Promise.resolve(result));
     expect(await controller.findAll()).toBe(result);
   });
 
@@ -46,9 +48,11 @@ describe.only('TaskController', () => {
       dueDate: new Date(),
       created_at: new Date(),
       updated_at: new Date(),
-      title: ''
+      title: '',
     };
-    jest.spyOn(service, 'findOne').mockImplementation(() => Promise.resolve(result));
+    jest
+      .spyOn(service, 'findOne')
+      .mockImplementation(() => Promise.resolve(result));
     expect(await controller.findOne(1)).toBe(result);
   });
 
@@ -61,16 +65,18 @@ describe.only('TaskController', () => {
       dueDate: new Date(),
       created_at: new Date(),
       updated_at: new Date(),
-      title: ''
+      title: '',
     };
-    jest.spyOn(service, 'create').mockImplementation(() => Promise.resolve(result));
+    jest
+      .spyOn(service, 'create')
+      .mockImplementation(() => Promise.resolve(result));
     expect(
       await controller.create({
         status: 'In Progress',
         completed: false,
         description: 'Complete the project',
         dueDate: new Date(),
-        title: ''
+        title: '',
       }),
     ).toBe(result);
   });
@@ -84,16 +90,18 @@ describe.only('TaskController', () => {
       dueDate: new Date(),
       created_at: new Date(),
       updated_at: new Date(),
-      title: ''
+      title: '',
     };
-    jest.spyOn(service, 'update').mockImplementation(() => Promise.resolve(result));
+    jest
+      .spyOn(service, 'update')
+      .mockImplementation(() => Promise.resolve(result));
     expect(
       await controller.update(1, {
         status: 'In Progress',
         completed: false,
         description: 'Complete the project',
         dueDate: new Date(),
-        title: ''
+        title: '',
       }),
     ).toBe(result);
   });
@@ -103,7 +111,9 @@ describe.only('TaskController', () => {
       raw: null,
       affected: 1,
     };
-    jest.spyOn(service, 'remove').mockImplementation(() => Promise.resolve(result));
+    jest
+      .spyOn(service, 'remove')
+      .mockImplementation(() => Promise.resolve(result));
     expect(await controller.remove(1)).toBe(result);
   });
 });
