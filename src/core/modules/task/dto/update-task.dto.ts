@@ -1,6 +1,6 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateTaskDto } from './create-task.dto';
-import { IsBoolean, IsDate, IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class UpdateTaskDto extends PartialType(CreateTaskDto) {
@@ -8,7 +8,6 @@ export class UpdateTaskDto extends PartialType(CreateTaskDto) {
     example: 'Task status',
     description: 'The status of the task',
   })
-
   @ApiProperty({
     example: 'Task status',
     description: 'The status of the task',
