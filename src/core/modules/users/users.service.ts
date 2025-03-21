@@ -23,7 +23,7 @@ export class UsersService {
 
   findAll() {
     return this.repository.find();
-}
+  }
 
   findOne(id: number) {
     return this.repository.findOneOrFail({ where: { id } });

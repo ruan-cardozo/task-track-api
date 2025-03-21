@@ -24,7 +24,6 @@ export class TaskService {
     let statusToFilter = '';
 
     switch (status) {
-
       case TaskStatus.todo:
         statusToFilter = 'A fazer';
         break;

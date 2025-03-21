@@ -26,7 +26,6 @@ export class TaskController {
 
   @Get('filter')
   findAllWithFilter(@Query('date') filter: Date) {
-
     return this.taskService.findAllWithDateFilter(filter);
   }
 
@@ -38,7 +37,7 @@ export class TaskController {
   @Get('status/:status')
   findTasksByStatus(@Param('status') status: TaskStatus) {
     console.log('status', status);
-    
+
     return this.taskService.findTasksByStatus(status);
   }
 
