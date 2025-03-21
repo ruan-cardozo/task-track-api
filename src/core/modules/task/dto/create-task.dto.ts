@@ -13,7 +13,7 @@ export class CreateTaskDto {
   @ApiProperty({
     example: 'Task title',
     description: 'The title of the task',
-  })
+  }) 
   @IsNotEmpty()
   @IsString()
   title: string;
