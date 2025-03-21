@@ -11,6 +11,7 @@ describe('TaskService', () => {
 
     service = module.get<TaskService>(TaskService);
     service.findAll = jest.fn().mockReturnValue([]);
+    service.findOne = jest.fn().mockReturnValue([1]);
   });
 
   it('should be defined', () => {
@@ -19,5 +20,9 @@ describe('TaskService', () => {
 
   it('should be defined', () => {
     expect(service.findAll()).toBe([]);
+  });
+
+  it('should be defined', () => {
+    expect(service.findOne(1)).toBe([1]);
   });
 });
