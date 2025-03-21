@@ -2,12 +2,13 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { TaskController } from '../task.controller';
 import { TaskService } from '../task.service';
 import { Task } from '../entities/task.entity';
-import { DeleteResult } from 'typeorm';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository } from 'typeorm';
+import { getRepositoryToken } from '@nestjs/typeorm';
 
-describe('TaskController', () => {
+describe.only('TaskController', () => {
   let controller: TaskController;
   let service: TaskService;
+  let repository: Repository<Task>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -15,7 +16,7 @@ describe('TaskController', () => {
       providers: [
         TaskService,
         {
-          provide: 'UserRepository',
+          provide: getRepositoryToken(Task),
           useClass: Repository,
         },
       ],
@@ -23,6 +24,7 @@ describe('TaskController', () => {
 
     controller = module.get<TaskController>(TaskController);
     service = module.get<TaskService>(TaskService);
+    repository = module.get<Repository<Task>>(getRepositoryToken(Task));
   });
 
   it('should be defined', () => {
@@ -31,9 +33,7 @@ describe('TaskController', () => {
 
   it('should get all tasks', async () => {
     const result: Task[] = [];
-    jest
-      .spyOn(service, 'findAll')
-      .mockImplementation(() => Promise.resolve(result));
+    jest.spyOn(service, 'findAll').mockImplementation(() => Promise.resolve(result));
     expect(await controller.findAll()).toBe(result);
   });
 
@@ -46,10 +46,9 @@ describe('TaskController', () => {
       dueDate: new Date(),
       created_at: new Date(),
       updated_at: new Date(),
+      title: ''
     };
-    jest
-      .spyOn(service, 'findOne')
-      .mockImplementation(() => Promise.resolve(result));
+    jest.spyOn(service, 'findOne').mockImplementation(() => Promise.resolve(result));
     expect(await controller.findOne(1)).toBe(result);
   });
 
@@ -62,16 +61,16 @@ describe('TaskController', () => {
       dueDate: new Date(),
       created_at: new Date(),
       updated_at: new Date(),
+      title: ''
     };
-    jest
-      .spyOn(service, 'create')
-      .mockImplementation(() => Promise.resolve(result));
+    jest.spyOn(service, 'create').mockImplementation(() => Promise.resolve(result));
     expect(
       await controller.create({
         status: 'In Progress',
         completed: false,
         description: 'Complete the project',
         dueDate: new Date(),
+        title: ''
       }),
     ).toBe(result);
   });
@@ -85,16 +84,16 @@ describe('TaskController', () => {
       dueDate: new Date(),
       created_at: new Date(),
       updated_at: new Date(),
+      title: ''
     };
-    jest
-      .spyOn(service, 'update')
-      .mockImplementation(() => Promise.resolve(result));
+    jest.spyOn(service, 'update').mockImplementation(() => Promise.resolve(result));
     expect(
       await controller.update(1, {
         status: 'In Progress',
         completed: false,
         description: 'Complete the project',
         dueDate: new Date(),
+        title: ''
       }),
     ).toBe(result);
   });
@@ -104,9 +103,7 @@ describe('TaskController', () => {
       raw: null,
       affected: 1,
     };
-    jest
-      .spyOn(service, 'remove')
-      .mockImplementation(() => Promise.resolve(result));
+    jest.spyOn(service, 'remove').mockImplementation(() => Promise.resolve(result));
     expect(await controller.remove(1)).toBe(result);
   });
 });

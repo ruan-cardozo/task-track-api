@@ -10,7 +10,7 @@ import {
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { IsPublic } from 'src/core/common/decorators/is-public.decorator';
+import { IsPublic } from '../../common/decorators/is-public.decorator';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('users')
