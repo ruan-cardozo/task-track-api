@@ -8,7 +8,7 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 describe.only('TaskController', () => {
   let controller: TaskController;
   let service: TaskService;
-  let repository: Repository<Task>;
+  // let repository: Repository<Task>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -24,7 +24,7 @@ describe.only('TaskController', () => {
 
     controller = module.get<TaskController>(TaskController);
     service = module.get<TaskService>(TaskService);
-    repository = module.get<Repository<Task>>(getRepositoryToken(Task));
+    // repository = module.get<Repository<Task>>(getRepositoryToken(Task));
   });
 
   it('should be defined', () => {
