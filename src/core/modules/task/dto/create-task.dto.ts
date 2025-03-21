@@ -17,7 +17,7 @@ export class CreateTaskDto {
   @IsNotEmpty()
   @IsString()
   title: string;
-
+ 
   @ApiProperty({
     example: '2021-07-01',
     description: 'The due date of the task',
